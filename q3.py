@@ -30,10 +30,6 @@ with open(path) as f:
             new.write(file.encode())
             new.write(signature)
             new.close()
-
-        with open('keys/publicKey.pem', 'rb') as p:
-            publicKeyReloaded = rsa.PublicKey.load_pkcs1(p.read())
-            test = verify(file, signature, publicKeyReloaded)
-            print(test)
+            
         p.close()
         f.close()
